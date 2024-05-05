@@ -9,6 +9,14 @@ import {
   UserIcon,
 } from "lucide-react";
 import Home from "@/app/page";
+import {
+  SignedIn,
+  SignedOut,
+  SignIn,
+  SignInButton,
+  UserButton,
+} from "@clerk/nextjs";
+import { Button } from "./ui/button";
 const Header = () => {
   return (
     <div className="flex items-center p-2 max-w-6xl mx-auto">
@@ -50,6 +58,18 @@ const Header = () => {
           <MessageSquare className="h-5 " />
           <p>Messaging</p>
         </Link>
+
+        {/* User Button if signIn */}
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+
+        {/* SignIn Button if not signed in */}
+        <SignedOut>
+          <Button asChild variant="secondary">
+            <SignInButton />
+          </Button>
+        </SignedOut>
       </div>
     </div>
   );

@@ -3,9 +3,15 @@ import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <main className="">
-      <h1>LinkedIn 2 Clone</h1>
-      <Button>Click me</Button>
-    </main>
+    <div className="flex">
+      <section>{/* UserInformation */}</section>
+
+      <section>
+        {/* PostForm */}
+        {/* PostFeed */}
+      </section>
+
+      <section>{/* Widget */}</section>
+    </div>
   );
 }

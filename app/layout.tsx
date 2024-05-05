@@ -4,6 +4,8 @@ import "./globals.css";
 
 import Header from "../components/Header";
 
+import { ClerkProvider } from "@clerk/nextjs"; // ClerkProvider Mange Authentication
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,18 +19,36 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="min-h-screen flex flex-col">
-        {/* Toaster */}
+    <ClerkProvider>
+      <html lang="en">
+        <body className="min-h-screen flex flex-col">
+          {/* Toaster */}
 
-        <header className="border-b sticky z-50 bg-white">
-          <Header />
-        </header>
+          <header className="border-b sticky z-50 bg-white">
+            <Header />
+          </header>
 
-        <div className="bg-[#F4F2ED] flex-1 w-full">
-          <main>{children}</main>
-        </div>
-      </body>
-    </html>
+          <div className="bg-[#F4F2ED] flex-1 w-full">
+            <main>{children}</main>
+          </div>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
+
+/* 
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <ClerkProvider>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </ClerkProvider>
+  )
+} */
