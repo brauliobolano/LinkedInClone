@@ -11,6 +11,25 @@ function PostForm() {
   const { user } = useUser();
   const [preview, setPreview] = useState<string | null>(null);
 
+  const handlePostAccion = async (FormData: FormData) => {
+    const formDataCopy = FormData;
+    ref.current?.reset();
+
+    const text = formDataCopy.get("postInput") as string;
+
+    if (!text.trim()) {
+      throw new Error("You must provide a post input");
+    }
+
+    setPreview(null);
+
+    try {
+      await createPostAction(formDataCopy);
+    } catch (error) {
+      console.error("Error creating post: ", error);
+    }
+  };
+
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -24,6 +43,9 @@ function PostForm() {
         ref={ref}
         action={(FormData) => {
           console.log(FormData);
+          // Handle form submission
+          handlePostAccion(FormData);
+          // Toast notification based on the response
         }}
         className="p-3 bg-white rounded-lg border"
       >

@@ -1,0 +1,38 @@
+{
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "keyword",
+          "variable.language",
+          "storage.type.class",
+          "storage.type.function",
+          "storage.type.property",
+          "storage.type.variable",
+          "entity.name.type.class",
+          "entity.name.function",
+          "entity.name.section",
+          "entity.name.type",
+          "variable.parameter",
+          "variable",
+          "string",
+          "constant.language",
+          "meta.selector.css",
+          "keyword.control",
+          "meta.tag.attributes",
+          "entity.name.method.js",
+          "meta.function-call.js",
+          "support.function",
+          "support.class",
+          "support.constant",
+          "punctuation"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ],
+    "comments": ""
+  }
+}
